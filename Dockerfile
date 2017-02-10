@@ -4,7 +4,6 @@ MAINTAINER juliandondero@gmail.com
 RUN useradd -ms /bin/bash user
 USER user
 WORKDIR /home/user
-ENV NVM_DIR ~/.nvm
 ENV NODE_VERSION 6.8.0
 
 USER root
@@ -22,7 +21,7 @@ USER user
 WORKDIR /home/user
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash \ 
-	&& /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default"
+	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default"
 
 USER root
 CMD ["/usr/bin/supervisord"]
