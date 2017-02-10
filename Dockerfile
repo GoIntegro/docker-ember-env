@@ -21,7 +21,7 @@ USER user
 WORKDIR /home/user
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash \ 
-	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install bower -g"
+	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install bower -g && npm install -g ember-cli && npm install -g less"
 
 USER root
 CMD ["/usr/bin/supervisord"]
