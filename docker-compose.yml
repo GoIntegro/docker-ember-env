@@ -3,6 +3,7 @@ services:
   front:
     ports:
       - "4200:4200"
+      - "49153:49153"
     volumes:
       - ./workspace:/home/user/workspace
       - ~/.ssh:/home/user/.ssh
