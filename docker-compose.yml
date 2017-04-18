@@ -5,8 +5,20 @@ services:
       - "4200"
       - "4201"
       - "4202"
-      - "4203"
       - "49153:49153"
+      - "49154:49154"
+      - "49155:49155"
     volumes:
       - ./workspace:/home/user/workspace
-    build: ./
+    build: 
+      context: ./
+      dockerfile: dockerfile-front
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx/gointegro.conf:/etc/nginx/conf.d/gointegro.conf
+    command: [nginx-debug, '-g', 'daemon off;']
+    ports:
+      - "8080:8080"
+    links:
+      - front
