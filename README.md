@@ -34,7 +34,7 @@ Entrar la container de front (aplicacones ember) y levantar las aplicaciones en 
  docker exec -it dockeremberenv_front_1 bash
  su user
 ```
-*Obs: Cambiar dockeremberenv_front_1 por el nombre del container. Para obtenerlo ejecutar:*
+*Obs: Cambiar __**dockeremberenv_front_1**__ por el nombre del container. Para obtenerlo ejecutar:*
 ```bash
 docker ps
 ```
