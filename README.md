@@ -34,9 +34,16 @@ Entrar la container de front (aplicacones ember) y levantar las aplicaciones en 
  docker exec -it dockeremberenv_front_1 bash
  su user
 ```
-*Obs: Cambiar __**dockeremberenv_front_1**__ por el nombre del container. Para obtenerlo ejecutar:*
+*Obs: Cambiar __**dockeremberenv_front_1**__ por el nombre del container.
+Para obtenerlo ver la columna Name en:*
+
 ```bash
 docker ps
+
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                                                                                                             NAMES
+7535bc11e8b6        nginx                  "nginx-debug -g 'd..."   47 minutes ago      Up 47 minutes       80/tcp, 443/tcp, 0.0.0.0:8080->8080/tcp                                                                           dockeremberenv_nginx_1
+f1912927d2e3        dockeremberenv_front   "/usr/bin/supervisord"   48 minutes ago      Up 47 minutes       0.0.0.0:49153-49155->49153-49155/tcp, 0.0.0.0:32791->4200/tcp, 0.0.0.0:32790->4201/tcp, 0.0.0.0:32789->4202/tcp   dockeremberenv_front_1
+
 ```
 Instalar las dependencias con bower install y npm install
 
