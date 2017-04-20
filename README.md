@@ -67,4 +67,4 @@ __**accounts**__
 - path: **/**
 - levantar en puerto: **4202**
 	
-
+// TODO ver si es util que levante ember solo en las aplicaciones y redireccione el log a docker logs
