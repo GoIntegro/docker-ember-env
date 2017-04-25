@@ -28,11 +28,8 @@ git clone git@github.com:GoIntegro/go5-web-app.git
 git clone git@github.com:GoIntegro/go5-admin-panel.git
 ```
 4 - **Levantar apps:**
-
-Entrar la container de front (aplicacones ember) y levantar las aplicaciones en los puertos de cada una (listados mas abajo):
 ```bash
- docker exec -it dockeremberenv_front_1 bash
- su user
+docker exec -u user dockeremberenv_front_1 bash start-environment.sh
 ```
 *Obs: Cambiar __**dockeremberenv_front_1**__ por el nombre del container.
 Para obtenerlo ver la columna Name en:*
@@ -47,13 +44,23 @@ f1912927d2e3        dockeremberenv_front   "/usr/bin/supervisord"   48 minutes a
 ```
 Instalar las dependencias con bower install y npm install
 
-Ir a los directorios:
-``` cd workspace/go5-web-app/
-  ember s --port 4201
-```
 5 - **Abrir el browser en (por ejemplo) http://localhost:8080/gosocial/**
 
-### Puertos del nginx:
+6 - **Logging:**
+- Go Social:
+```bash
+docker exec -u user  dockeremberenv_front_1 tail -f go-social.log
+```
+- Accounts:
+```bash
+docker exec -u user  dockeremberenv_front_1 tail -f go-accounts.log
+```
+- Admin panel:
+```bash
+docker exec -u user  dockeremberenv_front_1 tail -f admin-panel.log
+```
+
+### Puertos internos del nginx:
     
 __**admin panel**__
 - path: **/adminpanel/**
@@ -66,5 +73,4 @@ __**gosocial**__
 __**accounts**__
 - path: **/**
 - levantar en puerto: **4202**
-	
-// TODO ver si es util que levante ember solo en las aplicaciones y redireccione el log a docker logs
+
