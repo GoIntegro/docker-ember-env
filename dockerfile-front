@@ -16,6 +16,7 @@ RUN apt-get install -y curl
 RUN apt-get install -y vim
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY start-environment.sh /home/user/start-environment.sh
 
 USER user
 WORKDIR /home/user
@@ -23,5 +24,12 @@ WORKDIR /home/user
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash \ 
 	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install bower -g && npm install -g ember-cli && npm install -g less"
 
+RUN "touch /home/user/go-social.log && touch /home/user/go-accounts.log && touch /home/user/admin-panel.log"
+
 USER root
+
+RUN ln -sf /dev/stdout /home/user/go-social.log \
+	&& ln -sf /dev/stdout /home/user/go-accounts.log \
+	&& ln -sf /dev/stdout /home/user/admin-panel.log
+
 CMD ["/usr/bin/supervisord"]
