@@ -1,4 +1,5 @@
 # !/bin/bash
+source /home/user/.nvm/nvm.sh
 
 if [ -d "/home/user/workspace/go5-web-app/" ]; then    
     cd /home/user/workspace/go5-web-app/

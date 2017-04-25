@@ -13,7 +13,7 @@ services:
     build: 
       context: ./
       dockerfile: dockerfile-front
-    entrypoint: su - user -c "/home/user/start-environment.sh"
+    #entrypoint: su - user -c "/home/user/start-environment.sh"
   nginx:
     image: nginx
     volumes:
