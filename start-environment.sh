@@ -9,6 +9,8 @@ else
 	echo "No existe el proyecto go5-web-app en el workspace..."
 fi
 
+sleep 3
+
 if [ -d "/home/user/workspace/go5-account-web/" ]; then
 	cd /home/user/workspace/go5-account-web/
 	echo "Starting go5-account-web... "
@@ -16,6 +18,8 @@ if [ -d "/home/user/workspace/go5-account-web/" ]; then
 else
 	echo "No existe el proyecto go5-account-web en el workspace..."
 fi
+
+sleep 3
 
 if [ -d "/home/user/workspace/go5-admin-panel/" ]; then
 	cd /home/user/workspace/go5-admin-panel/
