@@ -61,7 +61,19 @@ docker exec -u user  dockeremberenv_front_1 tail -f admin-panel.log
 ```
 
 ### Puertos internos del nginx:
-    
+Si se necesita o prefiere levantar las apps a mano dentro del container de front, hacer:
+
+1 - Ingresar al container: 
+```bash
+docker exec -it dockeremberenv_front_1 bash
+```
+2 - Ir al directorio:
+```bash
+cd workspace/go5-web-app/
+ember s --port 4201
+```
+3 - Repetir para las aplicaciones que se desee, respetando los siguientes puertos:
+
 __**admin panel**__
 - path: **/adminpanel/**
 - levantar en puerto: **4200**
