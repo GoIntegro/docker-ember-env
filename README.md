@@ -31,7 +31,7 @@ git clone git@github.com:GoIntegro/go5-admin-panel.git
 ```
 4 - **Levantar apps:**
 ```bash
-./start_all.sh
+./start.sh all
 ```
 *Obs: Si se renombra el directorio del entorno, cambiar __**dockeremberenv_front_1**__ por el nombre del container dentro del script.
 Para obtenerlo ver la columna Name en:*
@@ -55,16 +55,21 @@ Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _
 
 - Go Social:
 ```bash
-./log_gosocial.sh
+./log.sh gosocial
 ```
 - Accounts:
 ```bash
-./log_accounts.sh
+./log.sh accounts
 ```
 - Admin panel:
 ```bash
-./log_admin_panel.sh
+./log.sh adminpanel
 ```
+- Ver opciones:
+```bash
+./log.sh
+```
+
 --------------------------------------------------------------------------
 
 Al finalizar apagar los containers:
@@ -87,12 +92,16 @@ Si se necesita o prefiere levantar las apps por separado hacer:
 
 ```bash
 # levantar gosocial
-./start_gosocial.sh
+./start.sh gosocial
 
 # levantar accounts
-./start_accounts.sh
+./start.sh accounts
 
 # levantar admin panel
-./start_admin_panel.sh
+./start.sh adminpanel
+```
 
+- Ver opciones:
+```bash
+./start.sh
 ```
