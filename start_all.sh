@@ -1,0 +1,1 @@
+docker exec -u user dockeremberenv_front_1 bash start-environment.sh
