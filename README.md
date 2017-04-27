@@ -31,9 +31,9 @@ git clone git@github.com:GoIntegro/go5-admin-panel.git
 ```
 4 - **Levantar apps:**
 ```bash
-docker exec -u user dockeremberenv_front_1 bash start-environment.sh
+./start_all.sh
 ```
-*Obs: Si se renombra el directorio del entorno, cambiar __**dockeremberenv_front_1**__ por el nombre del container.
+*Obs: Si se renombra el directorio del entorno, cambiar __**dockeremberenv_front_1**__ por el nombre del container dentro del script.
 Para obtenerlo ver la columna Name en:*
 
 ```bash
@@ -83,29 +83,17 @@ docker-compose stop
 
 --------------------------------------------------------------------------
 
-### Levantar apps por separado (si no se quiere usar start-environment.sh):
-Si se necesita o prefiere levantar las apps a mano dentro del container de front, hacer:
+### Levantar apps por separado (si no se quiere usar start_all.sh):
+Si se necesita o prefiere levantar las apps por separado hacer:
 
-1 - Ingresar al container: 
 ```bash
-docker exec -it dockeremberenv_front_1 bash
+# levantar gosocial
+./start_gosocial.sh
+
+# levantar accounts
+./start_accounts.sh
+
+# levantar admin panel
+./start_admin_panel.sh
+
 ```
-2 - Ir al directorio:
-```bash
-cd workspace/go5-web-app/
-ember s --port 4201
-```
-3 - Repetir para las aplicaciones que se desee, respetando los siguientes puertos:
-
-__**admin panel**__
-- path: **/adminpanel/**
-- levantar en puerto: **4200**
-  
-__**gosocial**__
-- path: **/gosocial/**
-- levantar en puerto: **4201**
-
-__**accounts**__
-- path: **/**
-- levantar en puerto: **4202**
-
