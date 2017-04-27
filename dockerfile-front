@@ -15,7 +15,7 @@ RUN apt-get install -y git-core
 RUN apt-get install -y curl
 RUN apt-get install -y vim
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./scripts/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 USER user
 WORKDIR /home/user
