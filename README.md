@@ -51,21 +51,20 @@ La primera vez se deben instalar las dependencias con bower install y npm instal
 --------------------------------------------------------------------------
 
 **Logging:**
-Para ver el log de cada aplicacion corriendo:
+Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _*./start_all*_:
 
 - Go Social:
 ```bash
-docker exec -u user dockeremberenv_front_1 tail -f go-social.log
+./log_gosocial.sh
 ```
 - Accounts:
 ```bash
-docker exec -u user dockeremberenv_front_1 tail -f go-accounts.log
+./log_accounts.sh
 ```
 - Admin panel:
 ```bash
-docker exec -u user dockeremberenv_front_1 tail -f admin-panel.log
+./log_admin_panel.sh
 ```
-
 --------------------------------------------------------------------------
 
 Al finalizar apagar los containers:
