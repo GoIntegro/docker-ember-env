@@ -10,7 +10,7 @@ services:
       - "49155:49155"
     volumes:
       - ./workspace:/home/user/workspace
-      - ./start-environment.sh:/home/user/start-environment.sh
+      - ./scripts/start-environment.sh:/home/user/start-environment.sh
     build: 
       context: ./
       dockerfile: dockerfile-front    
