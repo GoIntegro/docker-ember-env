@@ -13,7 +13,7 @@ services:
       - ./scripts/start-environment.sh:/home/user/start-environment.sh
     build: 
       context: ./
-      dockerfile: dockerfile-front    
+      dockerfile: dockerfile-front  
   nginx:
     image: nginx
     volumes:
