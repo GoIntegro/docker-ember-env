@@ -5,9 +5,11 @@ services:
       - "4200"
       - "4201"
       - "4202"
+      - "4203"
       - "49153:49153"
       - "49154:49154"
       - "49155:49155"
+      - "49155:49156"
     volumes:
       - ./workspace:/home/user/workspace
       - ./scripts/start-environment.sh:/home/user/start-environment.sh

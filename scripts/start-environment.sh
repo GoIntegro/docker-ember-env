@@ -29,4 +29,12 @@ else
 	echo "No existe el proyecto go5-admin-panel en el workspace..."
 fi
 
+sleep 3
 
+if [ -d "/home/user/workspace/go5-mobile-app/" ]; then
+	cd /home/user/workspace/go5-mobile-app/
+	echo "Starting go5-mobile-app... "
+	ember s --port 4203 --live-reload-port 49156&> /home/user/go-mobile.log &
+else
+	echo "No existe el proyecto go5-mobile-app en el workspace..."
+fi

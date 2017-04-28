@@ -6,6 +6,8 @@ if [ "$app" == gosocial ]; then
 	docker exec -u user dockeremberenv_front_1 tail -f go-social.log
 elif [ "$app" == accounts ]; then	
 	docker exec -u user dockeremberenv_front_1 tail -f go-accounts.log
+elif [ "$app" == mobile ]; then
+	docker exec -u user dockeremberenv_front_1 tail -f go-mobile.log
 elif [ "$app" == adminpanel ]; then
 	docker exec -u user dockeremberenv_front_1 tail -f admin-panel.log
 else
@@ -13,6 +15,7 @@ else
 	echo "- gosocial "
 	echo "- accounts "
 	echo "- adminpanel "
+	echo "- mobile "
 fi
 
 
