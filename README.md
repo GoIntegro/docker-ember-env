@@ -65,6 +65,10 @@ Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _
 ```bash
 ./log.sh adminpanel
 ```
+- Mobile:
+```bash
+./log.sh mobile```
+
 - Ver opciones:
 ```bash
 ./log.sh
@@ -99,9 +103,27 @@ Si se necesita o prefiere levantar las apps por separado hacer:
 
 # levantar admin panel
 ./start.sh adminpanel
+
+# levantar mobile
+./start.sh mobile
 ```
 
 - Ver opciones:
 ```bash
 ./start.sh
 ```
+
+## Paths
+- gosocial: 
+http://localhost:8080/gosocial/
+
+- adminpanel: 
+http://localhost:8080/adminpanel/
+
+- accounts: 
+http://localhost:8080/
+
+- mobile: 
+http://localhost:8080/mobile/
+
+
