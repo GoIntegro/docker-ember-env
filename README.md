@@ -68,7 +68,7 @@ Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _
 - Mobile:
 ```bash
 ./log.sh mobile```
-
+```
 - Ver opciones:
 ```bash
 ./log.sh
