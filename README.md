@@ -126,4 +126,9 @@ http://localhost:8080/
 - mobile: 
 http://localhost:8080/mobile/
 
+--------------------------------------------------------------------------
 
+## Si se necesita entrar al container por alguna razon, ejecutar:
+```bash
+docker-compose exec -it dockeremberenv_front_1 bash
+```
