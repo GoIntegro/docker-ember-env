@@ -92,7 +92,7 @@ docker-compose stop
 --------------------------------------------------------------------------
 
 ### Levantar apps por separado (si no se quiere usar start_all.sh):
-Si se necesita o prefiere levantar las apps por separado hacer:
+Si se prefiere levantar las apps por separado (mas liviano en caso de no usar todas en simultaneo) hacer:
 
 ```bash
 # levantar gosocial
@@ -126,4 +126,9 @@ http://localhost:8080/
 - mobile: 
 http://localhost:8080/mobile/
 
+--------------------------------------------------------------------------
 
+### Si se necesita entrar al container por alguna razón, ejecutar:
+```bash
+docker exec -it dockeremberenv_front_1 bash
+```
