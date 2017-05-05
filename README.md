@@ -61,6 +61,7 @@ git clone git@github.com:GoIntegro/go5-admin-panel.git
 ```bash
 ./start.sh
 ```
+Nota: Al iniciar cualquier aplicacion, se ejecutará bower install y npm install antes de ember s.
 
 ## Paths
 - gosocial: 
@@ -92,7 +93,8 @@ docker-compose stop
 
 --------------------------------------------------------------------------
 
-### Si se necesita entrar al container por alguna razón, ejecutar:
+### Si se necesita entrar al container por alguna razón (por ejemplo para instalar dependencias con npm o bower), ejecutar:
+
 ```bash
 docker exec -it dockeremberenv_front_1 bash
 ```
