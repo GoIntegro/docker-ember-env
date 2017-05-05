@@ -34,7 +34,7 @@ RUN git clone https://github.com/facebook/watchman.git && \
 	
 ADD ssh/ /home/user/.ssh/
 RUN chmod 600 /home/user/.ssh/*
-RUN ssh-keyscan -p2200 github.com > /home/user/.ssh/known_hosts
+RUN ssh-keyscan github.com > /home/user/.ssh/known_hosts
 RUN chown user:user /home/user/.ssh/*
 
 USER user
