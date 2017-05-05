@@ -24,10 +24,6 @@ RUN apt-get install -y python-dev
 
 COPY ./scripts/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-ADD ssh/ /home/user/.ssh/
-RUN chmod 600 /home/user/.ssh/*
-RUN ssh-keyscan -p2200 github.com > /home/user/.ssh/known_hosts
-
 RUN git clone https://github.com/facebook/watchman.git && \
 	cd watchman && \
 	git checkout v4.7.0 && \
@@ -36,14 +32,16 @@ RUN git clone https://github.com/facebook/watchman.git && \
 	make && \
 	make install
 	
-
+ADD ssh/ /home/user/.ssh/
+RUN chmod 600 /home/user/.ssh/*
+RUN ssh-keyscan -p2200 github.com > /home/user/.ssh/known_hosts
+RUN chown user:user /home/user/.ssh/*
 
 USER user
 WORKDIR /home/user
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash \ 
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash \ 
 	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install bower -g && npm install -g ember-cli && npm install -g less"
 
 USER root
-
 CMD ["/usr/bin/supervisord"]
