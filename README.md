@@ -7,7 +7,15 @@ https://www.docker.com/
 
 https://docs.docker.com/compose/install/
 
-2 - **Levantar entorno docker:**
+2 - ** Copiar credenciales de ssh en el directorio ssh/ **
+```bash
+cp ~/.ssh/id_rsa ssh/
+cp ~/.ssh/id_rsa.pub ssh/
+```
+
+Nota: si la clave tiene password, este se le solicitara al arrancar las aplicaciones en caso de necesitar instalar las dependencias.
+
+3 - **Levantar entorno docker:**
 
 En el root de la repo ejecutar:
 
@@ -17,7 +25,7 @@ docker-compose up -d
 
 (el build de la imagen de front tarda algunos minutos)
 
-3 - **Crear la carpeta workspace y descargar los repositorios dentro:**
+4 - **Crear la carpeta workspace y descargar los repositorios dentro:**
 
 ```bash
 mkdir workspace
@@ -29,7 +37,69 @@ git clone git@github.com:GoIntegro/go5-account-web.git
 git clone git@github.com:GoIntegro/go5-web-app.git
 git clone git@github.com:GoIntegro/go5-admin-panel.git
 ```
-4 - **Levantar apps:**
+5 - **Levantar apps:**
+
+
+### Levantar apps:
+
+```bash
+# levantar gosocial
+./start.sh gosocial
+
+# levantar accounts
+./start.sh accounts
+
+# levantar admin panel
+./start.sh adminpanel
+
+# levantar mobile
+./start.sh mobile
+```
+
+- Ver opciones:
+```bash
+./start.sh
+```
+
+## Paths
+- gosocial: 
+http://localhost:8080/gosocial/
+
+- adminpanel: 
+http://localhost:8080/adminpanel/
+
+- accounts: 
+http://localhost:8080/
+
+- mobile: 
+http://localhost:8080/mobile/
+
+--------------------------------------------------------------------------
+
+Al finalizar apagar los containers:
+```bash
+docker-compose stop
+```
+
+Una vez creados los containers solamente hay que apagarlos y prenderlos (sin recrearlos):
+```bash
+docker-compose start
+```
+```bash
+docker-compose stop
+```
+
+--------------------------------------------------------------------------
+
+### Si se necesita entrar al container por alguna razón, ejecutar:
+```bash
+docker exec -it dockeremberenv_front_1 bash
+```
+
+--------------------------------------------------------------------------
+
+### Levantar todas las apps juntas:
+
 ```bash
 ./start.sh all
 ```
@@ -72,63 +142,4 @@ Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _
 - Ver opciones:
 ```bash
 ./log.sh
-```
-
---------------------------------------------------------------------------
-
-Al finalizar apagar los containers:
-```bash
-docker-compose stop
-```
-
-Una vez creados los containers solamente hay que apagarlos y prenderlos (sin recrearlos):
-```bash
-docker-compose start
-```
-```bash
-docker-compose stop
-```
-
---------------------------------------------------------------------------
-
-### Levantar apps por separado (si no se quiere usar start_all.sh):
-Si se prefiere levantar las apps por separado (mas liviano en caso de no usar todas en simultaneo) hacer:
-
-```bash
-# levantar gosocial
-./start.sh gosocial
-
-# levantar accounts
-./start.sh accounts
-
-# levantar admin panel
-./start.sh adminpanel
-
-# levantar mobile
-./start.sh mobile
-```
-
-- Ver opciones:
-```bash
-./start.sh
-```
-
-## Paths
-- gosocial: 
-http://localhost:8080/gosocial/
-
-- adminpanel: 
-http://localhost:8080/adminpanel/
-
-- accounts: 
-http://localhost:8080/
-
-- mobile: 
-http://localhost:8080/mobile/
-
---------------------------------------------------------------------------
-
-### Si se necesita entrar al container por alguna razón, ejecutar:
-```bash
-docker exec -it dockeremberenv_front_1 bash
 ```
