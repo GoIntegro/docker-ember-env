@@ -7,13 +7,14 @@ https://www.docker.com/
 
 https://docs.docker.com/compose/install/
 
-2 - ** Copiar credenciales de ssh en el directorio ssh/ **
+2 - **Copiar credenciales de ssh en el directorio ssh/**
+
 ```bash
 cp ~/.ssh/id_rsa ssh/
 cp ~/.ssh/id_rsa.pub ssh/
 ```
 
-Nota: si la clave tiene password, este se le solicitara al arrancar las aplicaciones en caso de necesitar instalar las dependencias.
+Nota: si la clave tiene password, este se le solicitara al arrancar las aplicaciones en caso de necesitar instalar dependencias.
 
 3 - **Levantar entorno docker:**
 
