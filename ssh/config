@@ -1,0 +1,6 @@
+# ssh/config
+# Git keys
+host github.com
+     user git
+     port 2200
+     identityfile /home/user/.ssh/id_rsa
