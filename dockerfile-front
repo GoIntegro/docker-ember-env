@@ -4,7 +4,7 @@ MAINTAINER juliandondero@gmail.com
 RUN useradd -ms /bin/bash user
 USER user
 WORKDIR /home/user
-ENV NODE_VERSION 6.8.0
+ENV NODE_VERSION 6.10.3
 ENV DEBIAN_FRONTEND=noninteractive
 
 USER root
@@ -54,12 +54,12 @@ USER user
 WORKDIR /home/user
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash \ 
-	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install bower -g && npm install -g ember-cli && npm install -g less && npm install -g cordova@5.1.1"
+	&& /bin/bash -c "source ~/.bashrc && source /home/user/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default && npm install npm@latest -g && npm install bower -g && npm install -g ember-cli && npm install -g less && npm install -g cordova@5.1.1"
 
 # Installs Android SDK
-ENV ANDROID_SDK_FILENAME android-sdk_r24.0.1-linux.tgz
+ENV ANDROID_SDK_FILENAME android-sdk_r23.0.2-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
-ENV ANDROID_API_LEVELS android-15,android-16,android-17,android-18,android-19,android-20,android-21,android-22,android-23,android-23
+ENV ANDROID_API_LEVELS android-15,android-16,android-17,android-18,android-19,android-20,android-21,android-22,android-23
 ENV ANDROID_BUILD_TOOLS_VERSION 21.1.0
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
