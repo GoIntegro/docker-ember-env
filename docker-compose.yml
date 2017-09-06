@@ -10,14 +10,14 @@ services:
       - "49154:49154"
       - "49155:49155"
       - "49156:49156"
+      - "5037:5037"
     volumes:
       - ./workspace:/home/user/workspace
       - ./scripts/start-environment.sh:/home/user/start-environment.sh
       # - /dev/bus/usb:/dev/bus/usb
     build: 
       context: ./
-      dockerfile: dockerfile-front  
-
+      dockerfile: dockerfile-front
     privileged: true
   nginx:
     image: nginx
