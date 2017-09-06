@@ -66,7 +66,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 USER root
 
-# --- Download Android SDK tools into $ANDROID_SDK_HOME
+# --- Download Android SDK tools
 
 # RUN useradd -u 1000 -M -s /bin/bash user
 RUN chown 1000 /opt
@@ -80,6 +80,12 @@ RUN mkdir -p /opt/android-sdk-linux
 RUN "/opt/tools/android-sdk-update.sh"
 
 RUN chown 1000 /opt/android-sdk-linux
+
+USER user
+
+RUN ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.1"
+
+USER root
 
 CMD ["/usr/bin/supervisord"]
 
