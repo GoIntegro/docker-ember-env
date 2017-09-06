@@ -14,7 +14,7 @@ services:
     volumes:
       - ./workspace:/home/user/workspace
       - ./scripts/start-environment.sh:/home/user/start-environment.sh
-      - /dev/bus/usb:/dev/bus/usb
+      # - /dev/bus/usb:/dev/bus/usb
     build: 
       context: ./
       dockerfile: dockerfile-front
