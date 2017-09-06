@@ -25,7 +25,7 @@ RUN apt-get install -y software-properties-common
 RUN apt-get update -qq \
     && apt-get install -y openjdk-8-jdk wget expect unzip vim \
     && apt-get clean
-
+RUN apt-get install -y gradle
 
 COPY ./scripts/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
@@ -46,8 +46,10 @@ RUN chown user:user /home/user/.ssh/*
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
+  add-apt-repository -y ppa:cwchien/gradle && \
   apt-get update && \
   apt-get install -y oracle-java8-installer && \
+  apt-get install -y gradle && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
