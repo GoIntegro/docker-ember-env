@@ -146,3 +146,15 @@ Para ver el log de cada aplicacion en el caso de haber iniciado el entorno con _
 ```bash
 ./log.sh
 ```
+
+### Cordova:
+
+* android-sdk esta instalado dentro del container. Para usar Adb se necesita usar el usuario root. 
+
+Para utilizar la imagen en osx hay que comentar la linea:
+
+```bash
+ #	- /dev/bus/usb:/dev/bus/usb
+```
+en el archivo docker-compose.yml ya que esta linea monta el usb para cordova en linux pero no funciona en osx.
+
