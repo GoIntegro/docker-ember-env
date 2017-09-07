@@ -87,5 +87,11 @@ RUN ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;26.0.1"
 
 USER root
 
+RUN usermod -aG plugdev user
+
+RUN adb kill-server
+
+RUN adb start-server
+
 CMD ["/usr/bin/supervisord"]
 
